@@ -41,8 +41,11 @@
  - **方法描述**：返回指定序列index处的节点元素信息。如果序列不存在，方法返回null。
  -  **实现过程**：1.当序列索引index不再链表范围内，返回null。2.如果索引在正常范围内，移动到index所在的节点node处，并返回node.item。
 
+
 **5.public T getHead()**:返回链表的头节点元素，如果头结点为null，返回null。
+
 **6.public T getLast()**:返回链表的尾节点元素，如果尾结点为null，返回null。
+
 **7.public boolean remove(int index)**
  - **方法描述**：删除指定索引index处的节点。返回值为true表明删除成功，失败为false。
  -  **实现过程**：1.当index不再链表序列中，方法返回false。2.索引指向头节点时，头节点后移，并将原头结点删除。3.获取要被删除的节点node和前一节点preNode，如果node是尾节点，更新尾节点为preNode，并删除node节点信息。如果不是尾节点，preNode指向下一个节点，并删除node节点信息。4.删除节点成功，size自减一个单位，并返回true。
