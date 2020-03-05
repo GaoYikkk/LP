@@ -1,29 +1,29 @@
 # Java实现单向链表(基础功能实现）
 
-# 3 详细设计说明
+# 详细设计说明
   &nbsp;  &nbsp;  &nbsp;  &nbsp;实现功能的链表以及相关功能由两个类组成:
 
  - 泛型类Link，命名为Link < T >。该类是链表功能的主类，用于提供链表操作的所有功能。
  - 泛型类Node，命名为Node< T >。表示链表中的节点，该类包含数据元素信息以及指针域信息。由于该节点为Link所独，可以设计成Link的内部类。
  
   &nbsp;  &nbsp;  &nbsp;  &nbsp;每当链表中增加一个元素时，对应增加一个Node对象，Node对象包含了元素信息（泛型变量）以及另一个节点引用对象（即链表指针域，实现多个节点的链接功能）。
-## 3.1 Node类的详细设计说明
+## 1 Node类的详细设计说明
   &nbsp;  &nbsp;  &nbsp;  &nbsp;Node类是为链表的节点信息，与主类Link的泛型信息应保持一致。由于该类主要用于链表节点对象声明，建议创建成为Link的内部类。其声明名称应为"static class Node<T>"。为了方便Node的使用，可以为Node增加一个构造方法用于直接初始化节点中的元素信息和指针域信息。Node类的成员变量和一个构造方法声明如下：
 	
  - **T item**:变量item用于存储链表节点中的数据（数据区）。 	
  - **Node< T > next**:变量next用于存储下一个链表节点对象（指针域）。 	
    **public Node(T item,Node< T > next)**:构造方法，用于初始化Node的成员变量。
 
-## 3.2 Link类的详细设计
+## 2 Link类的详细设计
   &nbsp;  &nbsp;  &nbsp;  &nbsp;Link类是实现功能的主要类，Link的声明应为"public class Link< T >"，链表的基本功能在Link类中进行实现。
-### 3.2.1 Link成员变量
+### 2.1 Link成员变量
 
  - **private int size**：用于表示链表的长度，初始值为0。当链表添加和删除节点时，应该修改size的值，size值与链表的实际长度吻合。
  -  **private final int  MAX_SIZE**：用于表示链表的最大长度。该值应为合理的整型常量，链表的长度应小于该值，初始值我们可以根据需求自行定义（不要超过int的最大值）。	
  - **private  Node< T > head**：表示链表的头结点，当删除头结点时，头结点的下一个节点变为头结点，初始值为null。 
  - **private  Node< T > last**：表示链表的尾结点。当删除尾结点时，尾结点的上一个节点变为尾结点，初始值为null。
 
-### 3.2.2 Link类方法
+### 2.2 Link类方法
 **1.public boolean add(T e)**
 
  - **方法描述**：（重载方法）向链表中添加新元素e。返回值为true表明添加成功，失败为false。
